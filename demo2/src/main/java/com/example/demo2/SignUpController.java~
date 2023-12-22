@@ -1,0 +1,147 @@
+package com.example.demo2;
+
+import java.io.*;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+
+public class SignUpController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private TextField EmailField;
+
+    @FXML
+    private RadioButton FemaleButton;
+
+    @FXML
+    private Button LoginOn;
+
+    @FXML
+    private RadioButton MaleButton;
+
+    @FXML
+    private RadioButton OtherButton;
+
+    @FXML
+    private Label TechnologiesFiled;
+
+    @FXML
+    private Button authSignIn;
+
+    @FXML
+    private ImageView image2;
+
+    @FXML
+    private TextField loginfield2;
+
+    @FXML
+    private PasswordField passwordfield2;
+
+    @FXML
+    private Rectangle rectangle2;
+
+
+    @FXML
+    void initialize() throws IOException {
+        File file = new File("file.txt");
+//        File file10 = new File("filer.txt");
+
+        LoginOn.setOnAction(event -> {
+            LoginOn.getScene().getWindow().hide();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/com/example/demo2/hello-view.fxml"));
+            try {
+                loader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Parent root = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        });
+        authSignIn.setOnAction(event -> {
+
+            try {
+                DataInputStream input = new DataInputStream(new FileInputStream(file));
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+            DataOutputStream out = null;
+            try {
+                out = new DataOutputStream(new FileOutputStream(file));
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                out.writeUTF(loginfield2.getText()+passwordfield2.getText());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+
+            authSignIn.getScene().getWindow().hide();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/com/example/demo2/hello-view.fxml"));
+            try {
+                loader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            Parent root = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+//            DataOutputStream outputStream = null;
+//            try {
+//                outputStream = new DataOutputStream(new FileOutputStream(file10));
+//            } catch (FileNotFoundException e) {
+//                throw new RuntimeException(e);
+//            }
+//            try {
+//                DataInputStream inputStream = new DataInputStream(new FileInputStream(file10));
+//            } catch (FileNotFoundException e) {
+//                throw new RuntimeException(e);
+//            }
+//            String qw="";
+//            Scanner sc = null;
+//            try {
+//                sc = new Scanner(file);
+//            } catch (FileNotFoundException e) {
+//                throw new RuntimeException(e);
+//            }
+//            while (sc.hasNext()){
+//                qw = qw+sc.next();
+//            }
+//            try {
+//                outputStream.writeUTF(qw);
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+        });
+
+
+
+
+
+
+
+    }
+}
