@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
+
+<GridPane alignment="CENTER" hgap="5" prefHeight="238.0" prefWidth="532.0" vgap="5" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project2.HomePageFacade">
+   <children>
+      <DatePicker fx:id="datePicker" />
+      <ChoiceBox fx:id="fromCityChoiceBox" GridPane.columnIndex="1" GridPane.rowIndex="0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="New York" />
+               <String fx:value="Los Angeles" />
+               <String fx:value="Chicago" />
+               <String fx:value="San Francisco" />
+               <String fx:value="Miami" />
+            </FXCollections>
+         </items>
+      </ChoiceBox>
+      <ChoiceBox fx:id="toCityChoiceBox" GridPane.columnIndex="2" GridPane.rowIndex="0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="New York" />
+               <String fx:value="Los Angeles" />
+               <String fx:value="Chicago" />
+               <String fx:value="San Francisco" />
+               <String fx:value="Miami" />
+            </FXCollections>
+         </items>
+      </ChoiceBox>
+      <GridPane fx:id="gridPane" GridPane.columnSpan="3" GridPane.rowIndex="1" />
+      <Button fx:id="selectButton" onAction="#handleSelectButtonAction" text="Select" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+      <Button fx:id="backButton" text="Back" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Text fx:id="text" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="166.93677139282227" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>
